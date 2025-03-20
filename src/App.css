@@ -53,17 +53,6 @@
   transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-/* Hide default cursor when custom cursor is active */
-body.custom-cursor-active {
-  cursor: none !important;
-}
-
-body.custom-cursor-active a,
-body.custom-cursor-active button,
-body.custom-cursor-active [role="button"] {
-  cursor: none !important;
-}
-
 /* Reveal animations */
 .reveal {
   position: relative;

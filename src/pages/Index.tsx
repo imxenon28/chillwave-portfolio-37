@@ -1,5 +1,5 @@
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
 import About from '../components/About';
@@ -8,10 +8,10 @@ import Music from '../components/Music';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
 import { ArrowUp } from 'lucide-react';
-import CustomCursor from '../components/CustomCursor';
 
 const Index = () => {
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const audioPlayerRef = useRef<HTMLIFrameElement>(null);
   
   // Generate random stars for the star field
   const generateStars = () => {
@@ -154,8 +154,18 @@ const Index = () => {
 
   return (
     <div className="min-h-screen flex flex-col relative overflow-hidden">
-      {/* Custom cursor - now disabled */}
-      <CustomCursor />
+      {/* Background Music Player (hidden) */}
+      <div className="fixed bottom-0 right-0 opacity-0 pointer-events-none">
+        <iframe 
+          ref={audioPlayerRef}
+          width="1" 
+          height="1" 
+          src="https://www.youtube.com/embed/jfKfPfyJRdk?si=GKCWxxiS1dA8Oo6W&autoplay=1&loop=1&playlist=jfKfPfyJRdk" 
+          title="Background Music" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          sandbox="allow-scripts allow-same-origin allow-presentation"
+        ></iframe>
+      </div>
       
       {/* Star field background */}
       <div className="star-field fixed inset-0 pointer-events-none z-[-1]">
@@ -168,7 +178,7 @@ const Index = () => {
       
       <main className="flex-grow">
         <Hero />
-        <div className="space-y-0"> {/* Removed spacing between sections */}
+        <div className="space-y-0">
           <About />
           <Projects />
           <Music />
