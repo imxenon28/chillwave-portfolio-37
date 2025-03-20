@@ -1,33 +1,43 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Play, Volume2, Youtube, ExternalLink } from 'lucide-react';
 
 const Music = () => {
   const [activeVideo, setActiveVideo] = useState(0);
+  const [loading, setLoading] = useState(true);
   
   const musicVideos = [
     {
       id: 1,
-      title: 'Rainy Day Lofi',
-      description: 'Relaxing beats to help you focus on a rainy day.',
-      embedId: 'jfKfPfyJRdk',
-      thumbnail: `https://img.youtube.com/vi/jfKfPfyJRdk/maxresdefault.jpg`
+      title: 'Simple XYA Lofi Beats',
+      description: 'Relaxing lofi beats for studying and chill vibes',
+      embedId: 'aJJfG3LtTbE',
+      thumbnail: `https://img.youtube.com/vi/aJJfG3LtTbE/maxresdefault.jpg`
     },
     {
       id: 2,
-      title: 'Late Night Study Session',
-      description: 'Perfect beats for those late night study sessions.',
-      embedId: '5yx6BWlEVcY',
-      thumbnail: `https://img.youtube.com/vi/5yx6BWlEVcY/maxresdefault.jpg`
+      title: 'Gentle Days - Lofi & Chill Mix',
+      description: 'Perfect beats for relaxing and unwinding',
+      embedId: 'LvNBbYPUGvs',
+      thumbnail: `https://img.youtube.com/vi/LvNBbYPUGvs/maxresdefault.jpg`
     },
     {
       id: 3,
-      title: 'Sakura Dreams',
-      description: 'Japanese-inspired lofi beats with cherry blossom vibes.',
-      embedId: 'DWcJFNfaw9c',
-      thumbnail: `https://img.youtube.com/vi/DWcJFNfaw9c/maxresdefault.jpg`
+      title: 'Nighttime Lofi Study Session',
+      description: 'Late night study vibes with calming beats',
+      embedId: 'gAYA0y8vGPQ',
+      thumbnail: `https://img.youtube.com/vi/gAYA0y8vGPQ/maxresdefault.jpg`
     }
   ];
+
+  useEffect(() => {
+    // Simulate loading of YouTube content
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+    
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <section id="music" className="py-24 relative">
@@ -47,14 +57,20 @@ const Music = () => {
           <div className="lg:col-span-2 opacity-0 animate-fade-in delay-200">
             <div className="glass-card rounded-xl overflow-hidden">
               <div className="aspect-video w-full bg-black">
-                <iframe 
-                  className="w-full h-full"
-                  src={`https://www.youtube.com/embed/${musicVideos[activeVideo].embedId}`}
-                  title={musicVideos[activeVideo].title}
-                  frameBorder="0" 
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                  allowFullScreen
-                ></iframe>
+                {loading ? (
+                  <div className="w-full h-full flex items-center justify-center">
+                    <div className="h-10 w-10 border-t-2 border-lofi-primary rounded-full animate-spin"></div>
+                  </div>
+                ) : (
+                  <iframe 
+                    className="w-full h-full"
+                    src={`https://www.youtube.com/embed/${musicVideos[activeVideo].embedId}`}
+                    title={musicVideos[activeVideo].title}
+                    frameBorder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowFullScreen
+                  ></iframe>
+                )}
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-semibold text-white mb-2">
@@ -131,7 +147,7 @@ const Music = () => {
             </div>
             
             <a 
-              href="https://youtube.com/" 
+              href="https://www.youtube.com/@xya.aestify" 
               target="_blank" 
               rel="noopener noreferrer"
               className="btn-primary w-full flex items-center justify-center"

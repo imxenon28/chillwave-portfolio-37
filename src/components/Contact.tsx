@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Mail, Send, User, MessageSquare, Youtube } from 'lucide-react';
+import { Mail, Send, User, MessageSquare, Youtube, Globe, Facebook, Instagram } from 'lucide-react';
 import { useToast } from "@/hooks/use-toast";
 
 const Contact = () => {
@@ -154,6 +154,23 @@ const Contact = () => {
                     </a>
                   </div>
                 </div>
+                
+                <div className="flex items-start">
+                  <div className="mt-1 w-10 h-10 rounded-full bg-lofi-primary/20 flex items-center justify-center mr-4 flex-shrink-0">
+                    <Globe size={18} className="text-lofi-primary" />
+                  </div>
+                  <div>
+                    <h4 className="text-white/90 font-medium mb-1">Website</h4>
+                    <a 
+                      href="https://merocinema.vercel.app/" 
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-white/70 hover:text-lofi-primary transition-colors duration-300"
+                    >
+                      merocinema.vercel.app
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
             
@@ -162,7 +179,7 @@ const Contact = () => {
               
               <div className="space-y-4">
                 <a 
-                  href="https://youtube.com/" 
+                  href="https://www.youtube.com/@xya.aestify" 
                   target="_blank" 
                   rel="noopener noreferrer" 
                   className="flex items-center group"
@@ -172,43 +189,95 @@ const Contact = () => {
                   </div>
                   <div>
                     <h4 className="text-white font-medium group-hover:text-lofi-primary transition-colors duration-300">YouTube</h4>
-                    <p className="text-white/50 text-sm">Lofi beats & mixes</p>
+                    <p className="text-white/50 text-sm">@xya.aestify</p>
                   </div>
                 </a>
                 
                 <a 
-                  href="https://github.com/" 
+                  href="https://www.instagram.com/manisbhusal__28" 
                   target="_blank" 
                   rel="noopener noreferrer" 
                   className="flex items-center group"
                 >
                   <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center mr-4 transition-colors duration-300 group-hover:bg-white/20">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white">
-                      <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h4 className="text-white font-medium group-hover:text-lofi-primary transition-colors duration-300">GitHub</h4>
-                    <p className="text-white/50 text-sm">Code & projects</p>
-                  </div>
-                </a>
-                
-                <a 
-                  href="https://instagram.com/" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="flex items-center group"
-                >
-                  <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center mr-4 transition-colors duration-300 group-hover:bg-white/20">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white">
-                      <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-                      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-                      <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-                    </svg>
+                    <Instagram size={18} className="text-white" />
                   </div>
                   <div>
                     <h4 className="text-white font-medium group-hover:text-lofi-primary transition-colors duration-300">Instagram</h4>
-                    <p className="text-white/50 text-sm">Photos & updates</p>
+                    <p className="text-white/50 text-sm">@manisbhusal__28</p>
+                  </div>
+                </a>
+                
+                <a 
+                  href="https://www.facebook.com/manis.bhusal.5" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="flex items-center group"
+                >
+                  <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center mr-4 transition-colors duration-300 group-hover:bg-white/20">
+                    <Facebook size={18} className="text-white" />
+                  </div>
+                  <div>
+                    <h4 className="text-white font-medium group-hover:text-lofi-primary transition-colors duration-300">Facebook</h4>
+                    <p className="text-white/50 text-sm">manis.bhusal.5</p>
+                  </div>
+                </a>
+                
+                <a 
+                  href="https://open.spotify.com/user/31qycgdjgatxw4b74lrqivyp5lxq" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="flex items-center group"
+                >
+                  <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center mr-4 transition-colors duration-300 group-hover:bg-white/20">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white">
+                      <circle cx="12" cy="12" r="10"></circle>
+                      <path d="M8 11.2A5.6 5.6 0 0 1 15.5 8"></path>
+                      <path d="M7 13.5A7 7 0 0 1 17 10"></path>
+                      <path d="M8.5 16.5a9 9 0 0 1 7.5-3"></path>
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 className="text-white font-medium group-hover:text-lofi-primary transition-colors duration-300">Spotify</h4>
+                    <p className="text-white/50 text-sm">My playlists</p>
+                  </div>
+                </a>
+                
+                <a 
+                  href="https://x.com/IMXENON28" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="flex items-center group"
+                >
+                  <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center mr-4 transition-colors duration-300 group-hover:bg-white/20">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white">
+                      <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path>
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 className="text-white font-medium group-hover:text-lofi-primary transition-colors duration-300">Twitter</h4>
+                    <p className="text-white/50 text-sm">@IMXENON28</p>
+                  </div>
+                </a>
+                
+                <a 
+                  href="https://www.threads.net/@manisbhusal" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="flex items-center group"
+                >
+                  <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center mr-4 transition-colors duration-300 group-hover:bg-white/20">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white">
+                      <path d="M19 7.5c-1-1-2.5-1.5-4-1.5-2.5 0-5 2-6.5 2S4 7 4 7"></path>
+                      <path d="M9 10.5V15"></path>
+                      <path d="M16 10.5V15"></path>
+                      <path d="M12 10.5V21"></path>
+                      <path d="M4 12.5C4 18 8 22 12 22s8-4 8-9.5c0-1-.5-2-1-3"></path>
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 className="text-white font-medium group-hover:text-lofi-primary transition-colors duration-300">Threads</h4>
+                    <p className="text-white/50 text-sm">@manisbhusal</p>
                   </div>
                 </a>
               </div>
