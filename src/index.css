@@ -7,25 +7,25 @@
 
 @layer base {
   :root {
-    --background: 240 30% 14%;
+    --background: 240 30% 8%;  /* Darker background for space theme */
     --foreground: 0 0% 98%;
 
-    --card: 240 20% 16%;
+    --card: 240 30% 12%;  /* Darker card backgrounds */
     --card-foreground: 0 0% 98%;
 
-    --popover: 240 25% 12%;
+    --popover: 240 25% 10%;  /* Darker popover */
     --popover-foreground: 0 0% 98%;
 
-    --primary: 252 100% 75%;
+    --primary: 260 80% 70%;  /* Purple primary color */
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 292 30% 78%;
+    --secondary: 230 60% 60%; /* Blue secondary color */
     --secondary-foreground: 240 25% 12%;
 
     --muted: 240 20% 30%;
     --muted-foreground: 240 10% 80%;
 
-    --accent: 292 50% 86%;
+    --accent: 180 70% 45%;  /* Cyan accent */
     --accent-foreground: 240 25% 12%;
 
     --destructive: 0 84.2% 60.2%;
@@ -50,31 +50,19 @@
   }
 
   body {
-    @apply bg-background text-foreground overflow-x-hidden font-sans cursor-none;
+    @apply bg-space-dark text-foreground overflow-x-hidden font-sans;
+    background-image: url('https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?q=80&w=2071&auto=format&fit=crop');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
   }
 
   ::selection {
-    @apply bg-lofi-primary/30 text-white;
+    @apply bg-space-purple/30 text-white;
   }
 }
 
 @layer components {
-  .glass-card {
-    @apply bg-white/5 backdrop-blur-md border border-white/10 rounded-xl transition-transform duration-300 hover:shadow-xl hover:shadow-lofi-primary/10;
-  }
-  
-  .section-container {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24;
-  }
-
-  .section-title {
-    @apply text-4xl md:text-5xl font-display font-bold text-white opacity-90 mb-8;
-  }
-
-  .section-subtitle {
-    @apply text-lg md:text-xl text-muted-foreground mb-16 max-w-2xl;
-  }
-
   /* Define the btn-hover-effect class before using it */
   .btn-hover-effect {
     position: relative;
@@ -101,8 +89,24 @@
     left: 100%;
   }
 
+  .glass-card {
+    @apply bg-white/5 backdrop-blur-md border border-white/10 rounded-xl transition-transform duration-300 hover:shadow-xl hover:shadow-space-cyan/20;
+  }
+  
+  .section-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16;
+  }
+
+  .section-title {
+    @apply text-4xl md:text-5xl font-display font-bold text-white opacity-90 mb-8;
+  }
+
+  .section-subtitle {
+    @apply text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl;
+  }
+
   .btn-primary {
-    @apply px-6 py-3 rounded-full bg-lofi-primary text-white font-medium transition-all duration-300 hover:bg-lofi-primary/90 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-lofi-primary/50 focus:ring-offset-2 focus:ring-offset-background relative overflow-hidden btn-hover-effect;
+    @apply px-6 py-3 rounded-full bg-space-purple text-white font-medium transition-all duration-300 hover:bg-space-purple/90 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-space-purple/50 focus:ring-offset-2 focus:ring-offset-background relative overflow-hidden btn-hover-effect;
   }
 
   .btn-secondary {
@@ -110,7 +114,7 @@
   }
   
   .nav-link {
-    @apply relative text-muted-foreground hover:text-white transition-colors duration-300 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-lofi-primary after:transition-all after:duration-300 hover:after:w-full;
+    @apply relative text-muted-foreground hover:text-white transition-colors duration-300 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-space-cyan after:transition-all after:duration-300 hover:after:w-full;
   }
 
   .nav-link.active {
@@ -123,6 +127,23 @@
   
   .interactive-card {
     @apply transition-all duration-500 hover:translate-y-[-5px] hover:shadow-lg;
+  }
+
+  /* Space theme specific components */
+  .space-card {
+    @apply bg-gradient-to-br from-space-navy/80 to-space-dark/90 backdrop-blur-md border border-space-indigo/20 rounded-xl shadow-lg shadow-space-indigo/10 transition-all duration-300;
+  }
+
+  .star {
+    @apply absolute rounded-full bg-white;
+  }
+
+  .planet {
+    @apply rounded-full absolute;
+  }
+
+  .meteor {
+    @apply absolute h-0.5 w-[100px] bg-gradient-to-r from-space-orange via-space-yellow to-transparent;
   }
 }
 
@@ -169,7 +190,7 @@
 /* Enhanced hover effects */
 .btn-primary:hover, 
 .btn-secondary:hover {
-  box-shadow: 0 10px 25px -3px rgba(136, 132, 255, 0.25);
+  box-shadow: 0 10px 25px -3px rgba(107, 70, 193, 0.4);
 }
 
 /* Add magnetic button effect */
@@ -183,4 +204,25 @@
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.4s, transform 0.4s;
+}
+
+/* Space-specific animations */
+.star-field {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.glow {
+  filter: blur(8px);
+  opacity: 0.6;
+}
+
+.space-gradient {
+  background: linear-gradient(135deg, rgba(39, 39, 89, 0.4) 0%, rgba(74, 53, 120, 0.4) 100%);
+  backdrop-filter: blur(10px);
 }

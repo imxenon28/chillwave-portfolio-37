@@ -60,6 +60,20 @@ export default {
 					background: '#1A1A2E',
 					text: '#F8F8FF',
 					muted: '#4A4E69'
+				},
+				space: {
+					dark: '#0F0F23',
+					navy: '#1E1E3F',
+					purple: '#6B46C1',
+					blue: '#3E63DD',
+					cyan: '#27C5C5',
+					teal: '#38B2AC',
+					green: '#0C9D58',
+					yellow: '#F4C20D',
+					orange: '#FF5722',
+					pink: '#E83E8C',
+					indigo: '#5A67D8',
+					glow: '#C7D2FE'
 				}
 			},
 			borderRadius: {
@@ -96,6 +110,27 @@ export default {
 					'0%': { backgroundPosition: '0% 50%' },
 					'50%': { backgroundPosition: '100% 50%' },
 					'100%': { backgroundPosition: '0% 50%' }
+				},
+				'float': {
+					'0%, 100%': { transform: 'translateY(0px)' },
+					'50%': { transform: 'translateY(-20px)' },
+				},
+				'star-twinkle': {
+					'0%, 100%': { opacity: '1', transform: 'scale(1)' },
+					'50%': { opacity: '0.5', transform: 'scale(0.8)' },
+				},
+				'space-float': {
+					'0%, 100%': { transform: 'rotate(-3deg) translateY(0px)' },
+					'50%': { transform: 'rotate(3deg) translateY(-15px)' },
+				},
+				'meteor': {
+					'0%': { transform: 'rotate(215deg) translateX(0)', opacity: '1' },
+					'70%': { opacity: '1' },
+					'100%': { transform: 'rotate(215deg) translateX(-500px)', opacity: '0' },
+				},
+				'orbit': {
+					'0%': { transform: 'rotate(0deg) translateX(150px) rotate(0deg)' },
+					'100%': { transform: 'rotate(360deg) translateX(150px) rotate(-360deg)' },
 				}
 			},
 			animation: {
@@ -105,7 +140,12 @@ export default {
 				'fade-in-right': 'fade-in-right 0.7s ease-out forwards',
 				'fade-in-left': 'fade-in-left 0.7s ease-out forwards',
 				'slow-pulse': 'slow-pulse 3s ease-in-out infinite',
-				'gradient-shift': 'gradient-shift 8s ease infinite'
+				'gradient-shift': 'gradient-shift 8s ease infinite',
+				'float': 'float 6s ease-in-out infinite',
+				'star-twinkle': 'star-twinkle 3s ease-in-out infinite',
+				'space-float': 'space-float 8s ease-in-out infinite',
+				'meteor': 'meteor 5s linear infinite',
+				'orbit': 'orbit 15s linear infinite'
 			},
 			fontFamily: {
 				sans: ['Inter', 'sans-serif'],
