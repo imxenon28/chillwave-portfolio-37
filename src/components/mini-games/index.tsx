@@ -4,6 +4,10 @@ import { useInView } from 'react-intersection-observer';
 import GameCard from './GameCard';
 import MemoryGame from './MemoryGame';
 import ReactionGame from './ReactionGame';
+import WhackAMole from './WhackAMole';
+import SlidingPuzzle from './SlidingPuzzle';
+import DiceRoll from './DiceRoll';
+import SnakeGame from './SnakeGame';
 import { games } from './gameData';
 
 const MiniGames = () => {
@@ -28,7 +32,7 @@ const MiniGames = () => {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
           {games.map((game, index) => (
             <GameCard
               key={game.id}
@@ -45,6 +49,10 @@ const MiniGames = () => {
                 <>
                   {game.id === 'memory' && <MemoryGame />}
                   {game.id === 'reaction' && <ReactionGame />}
+                  {game.id === 'whack' && <WhackAMole />}
+                  {game.id === 'puzzle' && <SlidingPuzzle />}
+                  {game.id === 'dice' && <DiceRoll />}
+                  {game.id === 'snake' && <SnakeGame />}
                 </>
               )}
             </GameCard>
