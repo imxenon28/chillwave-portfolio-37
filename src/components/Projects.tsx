@@ -10,7 +10,7 @@ const Projects = () => {
       title: 'Personal Blog Website',
       description: 'A simple blog website built with HTML, CSS, and JavaScript.',
       tags: ['HTML', 'CSS', 'JavaScript'],
-      github: 'https://github.com/',
+      github: 'https://github.com/imxenon28',
       demo: 'https://example.com/',
       image: 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?q=80&w=2000&auto=format&fit=crop'
     },
@@ -19,7 +19,7 @@ const Projects = () => {
       title: 'To-Do List Application',
       description: 'A to-do list application with local storage functionality.',
       tags: ['HTML', 'CSS', 'JavaScript'],
-      github: 'https://github.com/',
+      github: 'https://github.com/imxenon28',
       demo: 'https://example.com/',
       image: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?q=80&w=2000&auto=format&fit=crop'
     },
@@ -28,7 +28,7 @@ const Projects = () => {
       title: 'Weather App',
       description: 'A weather application that fetches data from an API.',
       tags: ['HTML', 'CSS', 'JavaScript', 'API'],
-      github: 'https://github.com/',
+      github: 'https://github.com/imxenon28',
       demo: 'https://example.com/',
       image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2000&auto=format&fit=crop'
     },
@@ -37,7 +37,7 @@ const Projects = () => {
       title: 'Calculator',
       description: 'A simple calculator with basic arithmetic operations.',
       tags: ['HTML', 'CSS', 'JavaScript'],
-      github: 'https://github.com/',
+      github: 'https://github.com/imxenon28',
       demo: 'https://example.com/',
       image: 'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?q=80&w=2000&auto=format&fit=crop'
     }
@@ -234,7 +234,7 @@ const Projects = () => {
         <div className="text-center mt-12">
           <a 
             ref={magneticButtonRef}
-            href="https://github.com/" 
+            href="https://github.com/imxenon28" 
             target="_blank" 
             rel="noopener noreferrer"
             className="btn-secondary inline-flex items-center magnetic-button transition-all duration-500"

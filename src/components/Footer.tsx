@@ -63,13 +63,13 @@ const Footer = () => {
               <Mail size={20} />
             </a>
             <a 
-              href="https://merocinema.vercel.app/" 
+              href="https://github.com/imxenon28" 
               target="_blank" 
               rel="noopener noreferrer"
               className="text-white/70 hover:text-lofi-primary transition-colors duration-300"
-              aria-label="Website"
+              aria-label="GitHub"
             >
-              <Globe size={20} />
+              <Github size={20} />
             </a>
           </div>
         </div>
