@@ -6,6 +6,7 @@ import About from '../components/About';
 import Projects from '../components/Projects';
 import Music from '../components/Music';
 import MiniGames from '../components/MiniGames';
+import PhotoAlbum from '../components/photo-album';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
 import { ArrowUp } from 'lucide-react';
@@ -183,6 +184,7 @@ const Index = () => {
           <About />
           <Projects />
           <Music />
+          <PhotoAlbum />
           <MiniGames />
           <Contact />
         </div>
