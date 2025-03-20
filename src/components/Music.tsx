@@ -40,31 +40,31 @@ const Music = () => {
   }, []);
 
   return (
-    <section id="music" className="py-24 relative">
+    <section id="music" className="py-12 relative"> {/* Reduced vertical padding */}
       <div className="absolute top-0 inset-x-0 h-40 bg-gradient-to-b from-background to-transparent"></div>
       <div className="absolute bottom-0 inset-x-0 h-40 bg-gradient-to-t from-background to-transparent"></div>
       
-      <div className="section-container relative z-10">
-        <div className="text-center mb-16">
+      <div className="section-container relative z-10 py-12"> {/* Reduced container padding */}
+        <div className="text-center mb-8"> {/* Reduced bottom margin */}
           <h2 className="section-title opacity-0 animate-fade-in">My Music</h2>
-          <p className="section-subtitle mx-auto opacity-0 animate-fade-in delay-100">
+          <p className="section-subtitle mx-auto opacity-0 animate-fade-in delay-100 mb-8"> {/* Reduced bottom margin */}
             Lofi anime beats to relax and study to
           </p>
         </div>
         
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6"> {/* Reduced gap */}
           {/* Featured Video */}
           <div className="lg:col-span-2 opacity-0 animate-fade-in delay-200">
             <div className="glass-card rounded-xl overflow-hidden">
-              <div className="aspect-video w-full bg-black">
+              <div className="aspect-video w-full bg-black relative"> {/* Added relative positioning */}
                 {loading ? (
                   <div className="w-full h-full flex items-center justify-center">
                     <div className="h-10 w-10 border-t-2 border-lofi-primary rounded-full animate-spin"></div>
                   </div>
                 ) : (
                   <iframe 
-                    className="w-full h-full"
-                    src={`https://www.youtube.com/embed/${musicVideos[activeVideo].embedId}`}
+                    className="w-full h-full absolute top-0 left-0" /* Fixed position to fill container */
+                    src={`https://www.youtube.com/embed/${musicVideos[activeVideo].embedId}?rel=0`} /* Added rel=0 to hide related videos */
                     title={musicVideos[activeVideo].title}
                     frameBorder="0" 
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
@@ -94,11 +94,11 @@ const Music = () => {
           
           {/* Video Selection and Music Info */}
           <div className="lg:col-span-1 opacity-0 animate-fade-in delay-300">
-            <h3 className="text-xl font-semibold text-white mb-6">
+            <h3 className="text-xl font-semibold text-white mb-4"> {/* Reduced bottom margin */}
               My Latest Tracks
             </h3>
             
-            <div className="space-y-4 mb-10">
+            <div className="space-y-3 mb-6"> {/* Reduced spacing and margin */}
               {musicVideos.map((video, index) => (
                 <div 
                   key={video.id}
@@ -131,14 +131,14 @@ const Music = () => {
               ))}
             </div>
             
-            <div className="glass-card rounded-xl p-6 mb-6">
-              <div className="flex items-center mb-4">
+            <div className="glass-card rounded-xl p-4 mb-4"> {/* Reduced padding and margin */}
+              <div className="flex items-center mb-3"> {/* Reduced margin */}
                 <div className="w-10 h-10 rounded-full bg-lofi-secondary/20 flex items-center justify-center mr-4">
                   <Volume2 size={20} className="text-lofi-secondary" />
                 </div>
                 <h4 className="text-lg font-semibold text-white">My Music Style</h4>
               </div>
-              <p className="text-white/70 mb-4">
+              <p className="text-white/70 mb-2"> {/* Reduced margin */}
                 I create lofi beats inspired by anime soundtracks and Japanese culture. My music aims to create a cozy, relaxing atmosphere perfect for studying, reading, or just chilling out.
               </p>
               <p className="text-white/70">

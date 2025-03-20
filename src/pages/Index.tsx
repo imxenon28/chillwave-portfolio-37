@@ -60,10 +60,12 @@ const Index = () => {
       
       <main className="flex-grow">
         <Hero />
-        <About />
-        <Projects />
-        <Music />
-        <Contact />
+        <div className="space-y-8"> {/* Reduced spacing between sections */}
+          <About />
+          <Projects />
+          <Music />
+          <Contact />
+        </div>
       </main>
       
       <Footer />
