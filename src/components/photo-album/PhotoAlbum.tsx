@@ -4,7 +4,7 @@ import { useInView } from 'react-intersection-observer';
 import { photos, categories } from './photoData';
 import PhotoCard from './PhotoCard';
 import CategoryFilter from './CategoryFilter';
-import { Gallery, ImageIcon } from 'lucide-react';
+import { Images, ImageIcon } from 'lucide-react';
 
 const PhotoAlbum = () => {
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
@@ -54,7 +54,7 @@ const PhotoAlbum = () => {
         
         {filteredPhotos.length === 0 && (
           <div className="text-center py-16">
-            <Gallery className="w-16 h-16 text-white/30 mx-auto mb-4" />
+            <Images className="w-16 h-16 text-white/30 mx-auto mb-4" />
             <p className="text-white/50 text-lg">No photos found in this category</p>
           </div>
         )}

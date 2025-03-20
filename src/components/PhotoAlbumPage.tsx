@@ -7,7 +7,7 @@ import Navbar from './Navbar';
 import Footer from './Footer';
 import PhotoCard from './photo-album/PhotoCard';
 import CategoryFilter from './photo-album/CategoryFilter';
-import { Gallery, ImageIcon, ArrowLeft } from 'lucide-react';
+import { Images, ImageIcon, ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const PhotoAlbumPage = () => {
@@ -101,7 +101,7 @@ const PhotoAlbumPage = () => {
             
             {filteredPhotos.length === 0 && (
               <div className="text-center py-16">
-                <Gallery className="w-16 h-16 text-white/30 mx-auto mb-4" />
+                <Images className="w-16 h-16 text-white/30 mx-auto mb-4" />
                 <p className="text-white/50 text-lg">No photos found in this category</p>
               </div>
             )}
