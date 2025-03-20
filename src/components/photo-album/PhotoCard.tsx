@@ -27,6 +27,7 @@ const PhotoCard = ({ photo, index, isInView }: PhotoCardProps) => {
             src={photo.src}
             alt={photo.alt}
             className="w-full h-full object-cover rounded-lg"
+            loading="lazy"
           />
         </AspectRatio>
         {photo.caption && (
