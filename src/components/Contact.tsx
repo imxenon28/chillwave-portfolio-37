@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Mail, Send, User, MessageSquare } from 'lucide-react';
+import { Mail, Send, User, MessageSquare, Youtube } from 'lucide-react';
 import { useToast } from "@/hooks/use-toast";
 
 const Contact = () => {
