@@ -16,11 +16,7 @@ const PhotoCard = ({ photo, index, isInView }: PhotoCardProps) => {
   return (
     <>
       <div
-        className={`glass-card p-1.5 rounded-xl overflow-hidden transition-all duration-500 transform cursor-pointer hover:scale-105 hover:shadow-lg hover:shadow-lofi-primary/20 ${
-          isInView
-            ? 'opacity-100 translate-y-0'
-            : 'opacity-0 translate-y-8'
-        }`}
+        className={`glass-card p-1.5 rounded-xl overflow-hidden transition-all duration-500 transform cursor-pointer hover:scale-105 hover:shadow-lg hover:shadow-lofi-primary/20 h-full`}
         style={{ 
           transitionDelay: `${150 * (index % 8)}ms`,
         }}

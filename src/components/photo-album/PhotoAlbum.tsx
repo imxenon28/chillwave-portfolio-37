@@ -4,7 +4,14 @@ import { useInView } from 'react-intersection-observer';
 import { photos, categories } from './photoData';
 import PhotoCard from './PhotoCard';
 import CategoryFilter from './CategoryFilter';
-import { Images, ImageIcon } from 'lucide-react';
+import { Images, ImageIcon, ChevronLeft, ChevronRight } from 'lucide-react';
+import { 
+  Carousel, 
+  CarouselContent, 
+  CarouselItem, 
+  CarouselPrevious, 
+  CarouselNext 
+} from "@/components/ui/carousel";
 
 const PhotoAlbum = () => {
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
@@ -41,18 +48,31 @@ const PhotoAlbum = () => {
           isInView={inView}
         />
         
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-          {filteredPhotos.map((photo, index) => (
-            <PhotoCard 
-              key={photo.id} 
-              photo={photo} 
-              index={index}
-              isInView={inView}
-            />
-          ))}
-        </div>
-        
-        {filteredPhotos.length === 0 && (
+        {filteredPhotos.length > 0 ? (
+          <div className={`transition-opacity duration-500 ${inView ? 'opacity-100' : 'opacity-0'}`}>
+            <Carousel 
+              opts={{
+                align: "start",
+                loop: true,
+              }}
+              className="w-full"
+            >
+              <CarouselContent className="-ml-2 md:-ml-4">
+                {filteredPhotos.map((photo, index) => (
+                  <CarouselItem key={photo.id} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3 xl:basis-1/4">
+                    <PhotoCard 
+                      photo={photo} 
+                      index={index}
+                      isInView={inView}
+                    />
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious className="left-2 bg-black/30 hover:bg-black/50 border-space-purple/30" />
+              <CarouselNext className="right-2 bg-black/30 hover:bg-black/50 border-space-purple/30" />
+            </Carousel>
+          </div>
+        ) : (
           <div className="text-center py-16">
             <Images className="w-16 h-16 text-white/30 mx-auto mb-4" />
             <p className="text-white/50 text-lg">No photos found in this category</p>
