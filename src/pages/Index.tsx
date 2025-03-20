@@ -8,6 +8,7 @@ import Music from '../components/Music';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
 import { ArrowUp } from 'lucide-react';
+import CustomCursor from '../components/CustomCursor';
 
 const Index = () => {
   const [showScrollTop, setShowScrollTop] = useState(false);
@@ -26,7 +27,20 @@ const Index = () => {
       setShowScrollTop(scrollPosition > 500);
     };
     
+    // Add smooth hover effect to all interactive elements
+    const addHoverEffects = () => {
+      const interactiveElements = document.querySelectorAll('a, button, [role="button"]');
+      
+      interactiveElements.forEach(element => {
+        element.classList.add('hover:transform-gpu', 'hover:scale-105', 'transition-transform', 'duration-300');
+      });
+    };
+    
     window.addEventListener('scroll', handleScroll);
+    
+    // Apply hover effects after DOM is fully loaded
+    setTimeout(addHoverEffects, 1000);
+    
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
   
@@ -39,6 +53,9 @@ const Index = () => {
 
   return (
     <div className="min-h-screen flex flex-col bg-lofi-background">
+      {/* Custom cursor */}
+      <CustomCursor />
+      
       <Navbar />
       
       <main className="flex-grow">
