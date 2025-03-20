@@ -11,7 +11,8 @@ const Projects = () => {
       description: 'A simple blog website built with HTML, CSS, and JavaScript.',
       tags: ['HTML', 'CSS', 'JavaScript'],
       github: 'https://github.com/',
-      demo: 'https://example.com/'
+      demo: 'https://example.com/',
+      image: 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?q=80&w=2000&auto=format&fit=crop'
     },
     {
       id: 2,
@@ -19,7 +20,8 @@ const Projects = () => {
       description: 'A to-do list application with local storage functionality.',
       tags: ['HTML', 'CSS', 'JavaScript'],
       github: 'https://github.com/',
-      demo: 'https://example.com/'
+      demo: 'https://example.com/',
+      image: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?q=80&w=2000&auto=format&fit=crop'
     },
     {
       id: 3,
@@ -27,7 +29,8 @@ const Projects = () => {
       description: 'A weather application that fetches data from an API.',
       tags: ['HTML', 'CSS', 'JavaScript', 'API'],
       github: 'https://github.com/',
-      demo: 'https://example.com/'
+      demo: 'https://example.com/',
+      image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2000&auto=format&fit=crop'
     },
     {
       id: 4,
@@ -35,7 +38,8 @@ const Projects = () => {
       description: 'A simple calculator with basic arithmetic operations.',
       tags: ['HTML', 'CSS', 'JavaScript'],
       github: 'https://github.com/',
-      demo: 'https://example.com/'
+      demo: 'https://example.com/',
+      image: 'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?q=80&w=2000&auto=format&fit=crop'
     }
   ];
 
@@ -176,8 +180,16 @@ const Projects = () => {
                 transitionDelay: `${index * 100}ms`
               }}
             >
-              <div className="h-48 bg-gradient-to-br from-lofi-primary/30 via-lofi-secondary/20 to-lofi-accent/10 flex items-center justify-center">
-                <h3 className="text-2xl font-display font-semibold text-white">{project.title}</h3>
+              <div 
+                className="h-48 bg-gradient-to-br from-lofi-primary/30 via-lofi-secondary/20 to-lofi-accent/10 flex items-center justify-center relative overflow-hidden"
+              >
+                <img 
+                  src={project.image} 
+                  alt={project.title}
+                  className="absolute inset-0 w-full h-full object-cover mix-blend-overlay opacity-80 transition-transform duration-500 hover:scale-110 hover:opacity-90"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                <h3 className="text-2xl font-display font-semibold text-white relative z-10">{project.title}</h3>
               </div>
               
               <div className="p-6">

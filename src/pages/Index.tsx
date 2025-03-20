@@ -5,6 +5,7 @@ import Hero from '../components/Hero';
 import About from '../components/About';
 import Projects from '../components/Projects';
 import Music from '../components/Music';
+import MiniGames from '../components/MiniGames';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
 import { ArrowUp } from 'lucide-react';
@@ -182,6 +183,7 @@ const Index = () => {
           <About />
           <Projects />
           <Music />
+          <MiniGames />
           <Contact />
         </div>
       </main>
