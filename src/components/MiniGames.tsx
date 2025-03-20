@@ -247,12 +247,12 @@ const MiniGames = () => {
       <div className="absolute top-0 inset-x-0 h-40 bg-gradient-to-b from-background to-transparent"></div>
       <div className="absolute bottom-0 inset-x-0 h-40 bg-gradient-to-t from-background to-transparent"></div>
       
-      <div className="section-container relative z-10">
+      <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
-          <h2 className={`section-title transition-all duration-700 ${inView ? 'opacity-100 transform-none' : 'opacity-0 translate-y-10'}`}>
+          <h2 className={`text-4xl font-bold text-white mb-4 transition-all duration-700 ${inView ? 'opacity-100 transform-none' : 'opacity-0 translate-y-10'}`}>
             Mini Games
           </h2>
-          <p className={`section-subtitle mx-auto transition-all duration-700 delay-100 ${inView ? 'opacity-100 transform-none' : 'opacity-0 translate-y-10'}`}>
+          <p className={`text-xl text-white/70 max-w-3xl mx-auto transition-all duration-700 delay-100 ${inView ? 'opacity-100 transform-none' : 'opacity-0 translate-y-10'}`}>
             Take a break and enjoy these space-themed mini games
           </p>
         </div>
@@ -261,15 +261,14 @@ const MiniGames = () => {
           {games.map((game, index) => (
             <Card 
               key={game.id}
-              className={`glass-card border-white/10 bg-white/5 backdrop-blur-md hover:bg-white/10 transition-all duration-500 cursor-pointer ${
+              className={`border-white/10 bg-white/5 backdrop-blur-md hover:bg-white/10 transition-all duration-500 overflow-hidden ${
                 inView ? 'opacity-100 transform-none animate-fade-in' : 'opacity-0 translate-y-10'
               }`}
               style={{ animationDelay: `${index * 200}ms` }}
-              onClick={() => setActiveGame(activeGame === game.id ? null : game.id)}
             >
               <CardHeader className="flex flex-row items-center justify-between pb-2 space-y-0">
                 <div className="space-y-1">
-                  <CardTitle className="text-xl font-display text-white">
+                  <CardTitle className="text-xl font-bold text-white">
                     {game.title}
                   </CardTitle>
                   <CardDescription className="text-white/70">
@@ -279,15 +278,15 @@ const MiniGames = () => {
                 {game.icon}
               </CardHeader>
               <CardContent className="pt-4">
-                {activeGame === game.id && (
+                {activeGame === game.id ? (
                   <div className="animate-scale-in">
                     {game.id === 'memory' && <MemoryGame />}
                     {game.id === 'reaction' && <ReactionGame />}
                   </div>
-                )}
-                {activeGame !== game.id && (
+                ) : (
                   <div className="flex justify-center">
                     <Button 
+                      onClick={() => setActiveGame(game.id)}
                       variant="outline" 
                       className="border-white/20 text-white hover:bg-white/10 hover:text-white"
                     >
@@ -297,6 +296,18 @@ const MiniGames = () => {
                   </div>
                 )}
               </CardContent>
+              {activeGame === game.id && (
+                <CardFooter className="flex justify-center pt-2 pb-4">
+                  <Button 
+                    onClick={() => setActiveGame(null)}
+                    variant="ghost" 
+                    size="sm"
+                    className="text-white/70 hover:text-white hover:bg-white/10"
+                  >
+                    Close Game
+                  </Button>
+                </CardFooter>
+              )}
             </Card>
           ))}
         </div>
