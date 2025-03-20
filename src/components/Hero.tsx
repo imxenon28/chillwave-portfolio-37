@@ -1,8 +1,14 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { ArrowDown } from 'lucide-react';
+import { useInView } from 'react-intersection-observer';
 
 const Hero = () => {
+  const { ref: heroRef, inView: heroInView } = useInView({
+    threshold: 0.1,
+    triggerOnce: true
+  });
+
   const scrollToAbout = () => {
     const aboutSection = document.getElementById('about');
     if (aboutSection) {
@@ -14,7 +20,11 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center pt-20 pb-20">
+    <section 
+      id="home" 
+      ref={heroRef}
+      className="relative min-h-screen flex items-center justify-center pt-20 pb-20"
+    >
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-lofi-primary/10 to-transparent"></div>
       
@@ -40,21 +50,21 @@ const Hero = () => {
       
       <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="flex flex-col items-center text-center">
-          <div className="inline-block mb-4 glass-card px-4 py-2 opacity-0 animate-fade-in">
+          <div className={`inline-block mb-4 glass-card px-4 py-2 transition-all duration-700 ${heroInView ? 'opacity-100 transform-none' : 'opacity-0 -translate-y-4'}`}>
             <p className="text-sm text-white/80 uppercase tracking-wider">Welcome to my portfolio</p>
           </div>
           
-          <h1 className="text-5xl md:text-7xl font-display font-bold text-white opacity-0 animate-fade-in delay-100">
+          <h1 className={`text-5xl md:text-7xl font-display font-bold text-white transition-all duration-700 delay-100 ${heroInView ? 'opacity-100 transform-none' : 'opacity-0 -translate-y-6'}`}>
             Manish Bhusal
           </h1>
           
-          <div className="h-px w-24 bg-lofi-primary/50 my-8 opacity-0 animate-fade-in delay-200"></div>
+          <div className={`h-px w-24 bg-lofi-primary/50 my-8 transition-all duration-700 delay-200 ${heroInView ? 'opacity-100 transform-none' : 'opacity-0 scale-x-0'}`}></div>
           
-          <p className="text-xl md:text-2xl text-white/80 max-w-3xl opacity-0 animate-fade-in delay-300">
+          <p className={`text-xl md:text-2xl text-white/80 max-w-3xl transition-all duration-700 delay-300 ${heroInView ? 'opacity-100 transform-none' : 'opacity-0 -translate-y-4'}`}>
             Computer Student <span className="inline-block mx-3 text-lofi-primary">|</span> Lofi Anime Beat Producer
           </p>
           
-          <div className="mt-12 opacity-0 animate-fade-in delay-400">
+          <div className={`mt-12 transition-all duration-700 delay-400 ${heroInView ? 'opacity-100 transform-none' : 'opacity-0 -translate-y-4'}`}>
             <a
               href="#about"
               onClick={(e) => {
@@ -71,7 +81,7 @@ const Hero = () => {
       </div>
       
       {/* Scroll indicator */}
-      <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 flex flex-col items-center opacity-0 animate-fade-in delay-500">
+      <div className={`absolute bottom-12 left-1/2 transform -translate-x-1/2 flex flex-col items-center transition-all duration-700 delay-500 ${heroInView ? 'opacity-100 transform-none' : 'opacity-0 translate-y-4'}`}>
         <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
           <div className="w-1.5 h-1.5 bg-white/70 rounded-full mt-2 animate-bounce"></div>
         </div>
