@@ -1,3 +1,4 @@
+
 # Welcome to your Lovable project
 
 ## Project info
@@ -52,7 +53,7 @@ npm run dev
 
 ## What technologies are used for this project?
 
-This project is built with .
+This project is built with:
 
 - Vite
 - TypeScript
@@ -60,10 +61,24 @@ This project is built with .
 - shadcn-ui
 - Tailwind CSS
 
+## GitHub Pages Deployment
+
+This project is configured to deploy to GitHub Pages automatically using GitHub Actions. Here's how it works:
+
+1. Push your changes to the `main` branch
+2. GitHub Actions will automatically build and deploy your site
+3. Your site will be available at `https://<your-username>.github.io/<your-repo-name>/`
+
+You can also manually trigger the deployment from the Actions tab in your GitHub repository.
+
 ## How can I deploy this project?
 
-Simply open [Lovable](https://lovable.dev/projects/21145c39-573b-4832-b645-10b5710bedf7) and click on Share -> Publish.
+You can deploy this project in multiple ways:
+
+1. **GitHub Pages**: This project is already set up for GitHub Pages deployment with GitHub Actions.
+2. **Lovable**: Open [Lovable](https://lovable.dev/projects/21145c39-573b-4832-b645-10b5710bedf7) and click on Share -> Publish.
+3. **Netlify/Vercel**: Follow the [custom domains documentation](https://docs.lovable.dev/tips-tricks/custom-domain/) for deployment to these platforms.
 
 ## I want to use a custom domain - is that possible?
 
-We don't support custom domains (yet). If you want to deploy your project under your own domain then we recommend using Netlify. Visit our docs for more details: [Custom domains](https://docs.lovable.dev/tips-tricks/custom-domain/)
+While GitHub Pages supports custom domains, you can also use Netlify for more options. Visit our docs for more details: [Custom domains](https://docs.lovable.dev/tips-tricks/custom-domain/)
