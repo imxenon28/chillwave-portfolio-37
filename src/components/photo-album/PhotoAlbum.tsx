@@ -1,10 +1,10 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { photos, categories } from './photoData';
 import PhotoCard from './PhotoCard';
 import CategoryFilter from './CategoryFilter';
-import { Images, ImageIcon, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Images, ImageIcon } from 'lucide-react';
 import { 
   Carousel, 
   CarouselContent, 
@@ -15,15 +15,30 @@ import {
 
 const PhotoAlbum = () => {
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
   
   const { ref, inView } = useInView({
     threshold: 0.1,
     triggerOnce: true
   });
   
+  // Add loading effect
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 500);
+    
+    return () => clearTimeout(timer);
+  }, []);
+  
   const filteredPhotos = activeCategory 
     ? photos.filter(photo => photo.category === activeCategory)
     : photos;
+
+  // Log to help debug
+  console.log('Photos available:', photos.length);
+  console.log('Filtered photos:', filteredPhotos.length);
+  console.log('Active category:', activeCategory);
 
   return (
     <section id="photo-album" className="py-24 relative" ref={ref}>
@@ -48,7 +63,11 @@ const PhotoAlbum = () => {
           isInView={inView}
         />
         
-        {filteredPhotos.length > 0 ? (
+        {isLoading ? (
+          <div className="flex justify-center items-center py-20">
+            <div className="w-12 h-12 border-4 border-t-lofi-primary border-r-transparent border-b-transparent border-l-transparent rounded-full animate-spin"></div>
+          </div>
+        ) : filteredPhotos.length > 0 ? (
           <div className={`transition-opacity duration-500 ${inView ? 'opacity-100' : 'opacity-0'}`}>
             <Carousel 
               opts={{

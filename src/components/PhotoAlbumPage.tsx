@@ -1,8 +1,7 @@
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { photos, categories } from './photo-album/photoData';
-import { useState } from 'react';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import PhotoCard from './photo-album/PhotoCard';
@@ -12,11 +11,21 @@ import { Link } from 'react-router-dom';
 
 const PhotoAlbumPage = () => {
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
   
   const { ref, inView } = useInView({
     threshold: 0.1,
     triggerOnce: true
   });
+  
+  // Add loading effect
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 500);
+    
+    return () => clearTimeout(timer);
+  }, []);
   
   const filteredPhotos = activeCategory 
     ? photos.filter(photo => photo.category === activeCategory)
@@ -88,18 +97,24 @@ const PhotoAlbumPage = () => {
               isInView={inView}
             />
             
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-              {filteredPhotos.map((photo, index) => (
-                <PhotoCard 
-                  key={photo.id} 
-                  photo={photo} 
-                  index={index}
-                  isInView={inView}
-                />
-              ))}
-            </div>
+            {isLoading ? (
+              <div className="flex justify-center items-center py-20">
+                <div className="w-12 h-12 border-4 border-t-lofi-primary border-r-transparent border-b-transparent border-l-transparent rounded-full animate-spin"></div>
+              </div>
+            ) : (
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                {filteredPhotos.map((photo, index) => (
+                  <PhotoCard 
+                    key={photo.id} 
+                    photo={photo} 
+                    index={index}
+                    isInView={inView}
+                  />
+                ))}
+              </div>
+            )}
             
-            {filteredPhotos.length === 0 && (
+            {!isLoading && filteredPhotos.length === 0 && (
               <div className="text-center py-16">
                 <Images className="w-16 h-16 text-white/30 mx-auto mb-4" />
                 <p className="text-white/50 text-lg">No photos found in this category</p>

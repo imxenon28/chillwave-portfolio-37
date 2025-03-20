@@ -24,6 +24,9 @@ export const categories: Category[] = [
   }
 ];
 
+// Console log to verify paths during loading
+console.log('Loading photo data...');
+
 export const photos: Photo[] = [
   {
     id: 'photo-1',
@@ -159,3 +162,6 @@ export const photos: Photo[] = [
     category: 'personal'
   }
 ];
+
+// Console log to verify loading completed
+console.log('Photo data loaded:', photos.length, 'photos');
