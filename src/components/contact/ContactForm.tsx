@@ -28,8 +28,18 @@ const ContactForm = () => {
     const templateID = 'template_ti04hdp'; // Using the provided template ID
     const userID = 'rR2kNHPJstddM4lq8'; // Using the provided public key
     
+    // Initialize EmailJS
+    emailjs.init(userID);
+    
+    // Prepare template parameters
+    const templateParams = {
+      from_name: formData.name,
+      from_email: formData.email,
+      message: formData.message
+    };
+    
     // Send the email using EmailJS
-    emailjs.sendForm(serviceID, templateID, e.currentTarget, userID)
+    emailjs.send(serviceID, templateID, templateParams)
       .then((result) => {
         console.log('Email sent successfully:', result.text);
         
@@ -46,7 +56,7 @@ const ContactForm = () => {
         });
       })
       .catch((error) => {
-        console.error('Email sending failed:', error.text);
+        console.error('Email sending failed:', error);
         
         toast({
           title: "Message failed to send",
