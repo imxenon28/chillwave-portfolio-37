@@ -24,8 +24,7 @@ const ContactForm = () => {
     setLoading(true);
     
     // EmailJS service, template, and user ID
-    // Note: You'll need to replace these with your actual EmailJS credentials
-    const serviceID = 'YOUR_SERVICE_ID'; // Replace with your EmailJS service ID
+    const serviceID = 'service_6j0si97'; // Using the provided service ID
     const templateID = 'YOUR_TEMPLATE_ID'; // Replace with your EmailJS template ID
     const userID = 'YOUR_USER_ID'; // Replace with your EmailJS user ID
     
