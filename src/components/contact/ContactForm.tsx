@@ -1,10 +1,12 @@
 
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Mail, Send, User, MessageSquare } from 'lucide-react';
 import { useToast } from "@/hooks/use-toast";
+import emailjs from 'emailjs-com';
 
 const ContactForm = () => {
   const { toast } = useToast();
+  const formRef = useRef<HTMLFormElement>(null);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -21,28 +23,48 @@ const ContactForm = () => {
     e.preventDefault();
     setLoading(true);
     
-    // Simulate form submission with a timeout
-    setTimeout(() => {
-      toast({
-        title: "Message sent!",
-        description: "Thank you for your message. I'll get back to you soon.",
+    // EmailJS service, template, and user ID
+    // Note: You'll need to replace these with your actual EmailJS credentials
+    const serviceID = 'YOUR_SERVICE_ID'; // Replace with your EmailJS service ID
+    const templateID = 'YOUR_TEMPLATE_ID'; // Replace with your EmailJS template ID
+    const userID = 'YOUR_USER_ID'; // Replace with your EmailJS user ID
+    
+    // Send the email using EmailJS
+    emailjs.sendForm(serviceID, templateID, e.currentTarget, userID)
+      .then((result) => {
+        console.log('Email sent successfully:', result.text);
+        
+        toast({
+          title: "Message sent!",
+          description: "Thank you for your message. I'll get back to you soon.",
+        });
+        
+        // Reset form
+        setFormData({
+          name: '',
+          email: '',
+          message: ''
+        });
+      })
+      .catch((error) => {
+        console.error('Email sending failed:', error.text);
+        
+        toast({
+          title: "Message failed to send",
+          description: "There was an error sending your message. Please try again later.",
+          variant: "destructive",
+        });
+      })
+      .finally(() => {
+        setLoading(false);
       });
-      
-      setFormData({
-        name: '',
-        email: '',
-        message: ''
-      });
-      
-      setLoading(false);
-    }, 1500);
   };
 
   return (
     <div className="glass-card rounded-xl p-6 md:p-8">
       <h3 className="text-xl font-semibold text-white mb-6">Send me a message</h3>
       
-      <form onSubmit={handleSubmit}>
+      <form ref={formRef} onSubmit={handleSubmit}>
         <div className="grid grid-cols-1 gap-6">
           <div>
             <label htmlFor="name" className="text-white/80 text-sm mb-2 block">Your Name</label>
