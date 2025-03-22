@@ -25,8 +25,8 @@ const ContactForm = () => {
     
     // EmailJS service, template, and user ID
     const serviceID = 'service_6j0si97'; // Using the provided service ID
-    const templateID = 'YOUR_TEMPLATE_ID'; // Replace with your EmailJS template ID
-    const userID = 'YOUR_USER_ID'; // Replace with your EmailJS user ID
+    const templateID = 'template_ti04hdp'; // Using the provided template ID
+    const userID = 'rR2kNHPJstddM4lq8'; // Using the provided public key
     
     // Send the email using EmailJS
     emailjs.sendForm(serviceID, templateID, e.currentTarget, userID)
